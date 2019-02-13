@@ -30,6 +30,9 @@ class Tile
     def pop
         self.containing.pop unless empty?
     end
+    def include?(class_)
+        self.containing.any?{|el| el.class == class_}
+    end
             
     
 end

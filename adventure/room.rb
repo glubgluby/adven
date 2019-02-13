@@ -45,6 +45,15 @@ class Room
         nil
     end
 
+    def include?(class_)
+        room.grid.each do |row|
+            row.each do |tile|
+                return true if tile.include?(class_)
+            end
+        end
+        false
+    end
+
 
 
 end
