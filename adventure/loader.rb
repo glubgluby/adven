@@ -1,0 +1,5 @@
+require_relative 'Floor'
+require_relative 'player'
+require_relative 'room'
+require_relative 'thing'
+require_relative 'tile'

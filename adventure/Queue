@@ -1,0 +1,11 @@
+class Queue
+    attr_reader
+    def initialize(x)
+        @queue = []
+    end
+
+    def push(x)
+        @
+
+
+end
