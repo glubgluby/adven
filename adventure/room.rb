@@ -4,27 +4,45 @@ require_relative 'thing'
 
 class Room
     attr_accessor :grid
+    attr_reader :border
+    DOOR_CHANCE = [0,1,2,3]
 
-    def initialize(size)
+    def initialize(size, border = nil)
 
         @grid = Array.new(size){Array.new(size){Tile.new}}
+        @border = border
         self.build_walls
     end
 
     def build_walls
-        grid.each_with_index do |row, idx|
-            if idx == 0 || idx == row.size - 1
+        grid.each_with_index do |row, y|
+            if y == 0 || y == 6
                 row.each do |tile|
                     tile << TopWall.new
                 end
             else
-                row.each_with_index do |tile, i|
-                    if i == 0 || i == row.size - 1
+                row.each_with_index do |tile, x|
+                    if x == 0 || x == row.size - 1
                         tile << SideWall.new
                     end
                 end
             end
         end
+    end
+
+    def build_doors
+        
+        #build doors
+        #doors cant go off maps
+        #if a room has a door connecting to another room, that room should have one 
+        #connecting back
+# [0, 1, 2, 3, 4, 5, 6]
+# [0, 1, 2, 3, 4, 5, 6]
+# [0, 1, 2, 3, 4, 5, 6]
+# [0, 1, 2, 3, 4, 5, 6]
+# [0, 1, 2, 3, 4, 5, 6]
+# [0, 1, 2, 3, 4, 5, 6]
+# [0, 1, 2, 3, 4, 5, 6]
     end
 
     def display
