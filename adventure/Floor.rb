@@ -27,31 +27,19 @@ class Floor
         end
 
     end
-
+    def [](pos)
+        y, x = pos
+        self[y][x]
+    end
+    
     #need to define where we have a border on the floor
     def self.floor_gen(floor)
         new_fl = Array.new(7){Array.new(7)}
         new_fl.map!.with_index do |row, y|
             row.map!.with_index do |room, x|
-                if x == 0 && y == 0
-                    Room.new(7,floor, :nw_corner)
-                elsif x == 0 && y == 6
-                    Room.new(7,floor, :sw_corner)
-                elsif x == 6 && y == 6
-                    Room.new(7,floor, :se_corner)
-                elsif x == 6 && y == 0
-                    Room.new(7, floor, :ne_corner)
-                elsif y == 0
-                    Room.new(7,floor, :north)
-                elsif y == 6
-                    Room.new(7,floor, :south)
-                elsif x == 0
-                    Room.new(7,floor, :west)
-                elsif x == 6
-                    Room.new(7,floor, :east)
-                else
-                    Room.new(7,floor)
-                end
+                
+                Room.new([y,x], floor)
+                
             end
         end
         new_fl

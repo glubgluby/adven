@@ -1,5 +1,4 @@
 require_relative 'tile'
-require 'colorize'
 
 
 class Thing

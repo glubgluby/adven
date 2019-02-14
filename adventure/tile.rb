@@ -34,8 +34,4 @@ class Tile
         self.containing.any?{|el| el.class == class_}
     end
 
-    def =(item) #should only be used in room generation
-        self.containing = [item]
-    end
-
 end
