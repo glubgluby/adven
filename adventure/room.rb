@@ -7,8 +7,8 @@ class Room
     attr_reader :border
     DOOR_CHANCE = [0,1,2,3]
 
-    def initialize(size, border = nil)
-
+    def initialize(size, floor, border = nil)
+        @floor = floor
         @grid = Array.new(size){Array.new(size){Tile.new}}
         @border = border
         self.build_walls
@@ -36,13 +36,14 @@ class Room
         #doors cant go off maps
         #if a room has a door connecting to another room, that room should have one 
         #connecting back
-# [0, 1, 2, 3, 4, 5, 6]
-# [0, 1, 2, 3, 4, 5, 6]
-# [0, 1, 2, 3, 4, 5, 6]
-# [0, 1, 2, 3, 4, 5, 6]
-# [0, 1, 2, 3, 4, 5, 6]
-# [0, 1, 2, 3, 4, 5, 6]
-# [0, 1, 2, 3, 4, 5, 6]
+        # [0, 1, 2, 3, 4, 5, 6]
+        # [0, 1, 2, 3, 4, 5, 6]
+        # [0, 1, 2, 3, 4, 5, 6]
+        # [0, 1, 2, 3, 4, 5, 6]
+        # [0, 1, 2, 3, 4, 5, 6]
+        # [0, 1, 2, 3, 4, 5, 6]
+        # [0, 1, 2, 3, 4, 5, 6]
+
     end
 
     def display
