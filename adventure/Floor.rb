@@ -29,7 +29,7 @@ class Floor
     end
     def [](pos)
         y, x = pos
-        self[y][x]
+        grid[y][x]
     end
     
     #need to define where we have a border on the floor
